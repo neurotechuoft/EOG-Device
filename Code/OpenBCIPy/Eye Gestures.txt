@@ -1,0 +1,2 @@
+List[0]: blinks
+List[1]: left-right movement
