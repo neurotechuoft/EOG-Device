@@ -6,11 +6,12 @@ from kivy.uix.boxlayout import BoxLayout
 from kivy.uix.button import Button
 from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.widget import Widget
+from biosignals.EOG import EOG
 
 from kivy.properties import ObjectProperty, NumericProperty, Clock
 from math import sin
 
-from user.User import User
+# from user.User import User
 from view.PointsCollection import PointsCollection
 from graph import Graph, MeshLinePlot
 
@@ -22,13 +23,13 @@ from graph import Graph, MeshLinePlot
 class WallEEGApp(App):
     def __init__(self):
         super(WallEEGApp, self).__init__()
-        self.user = User()
-        self.graph = Graph(xlabel='X', ylabel='Y', x_ticks_minor=5,
-                           x_ticks_major=25, y_ticks_major=0.001,
+        self.eog = EOG(256)
+        self.graph = Graph(xlabel='Time', ylabel='Gesture', x_ticks_minor=128,
+                           x_ticks_major=256, y_ticks_major=1,
                            y_grid_label=True, x_grid_label=True, padding=5,
-                           x_grid=True, y_grid=True, xmin=-0, xmax=100,
-                           ymin=-0.1,
-                           ymax=0.1)
+                           x_grid=True, y_grid=True, xmin=-0, xmax=10000,
+                           ymin=-1,
+                           ymax=5)
         self.plot = MeshLinePlot(color=[1, 0, 0, 1])
         self.counter = 0
 
@@ -58,7 +59,7 @@ class WallEEGApp(App):
 
     def build(self):
         self.plot.points = [(point[0], point[1]) for point in
-                            self.user.userECG.ecgListFFT]
+                            self.eog.gesture_list]
         # self.plot.points = [(x, sin(x / 100.)) for x in range(self.counter,
         #                                                       self.counter + 10)]
         self.graph.add_plot(self.plot)
@@ -72,7 +73,7 @@ class WallEEGApp(App):
         # self.plot.points = [(x, sin(x / 100.)) for x in range(self.counter,
         #                                                       self.counter + 10)]
         self.plot.points = [(point[0], point[1]) for point in
-                            self.user.userECG.ecgListFFT]
+                            self.eog.gesture_list]
 
 
 

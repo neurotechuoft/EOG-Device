@@ -13,7 +13,7 @@ from yapsy.PluginManager import PluginManager
 
 # OPENBCI FUNCTIONS-------------------------------------------------------------
 # Load the plugins from the plugin directory.
-from user.User import User
+# from user.User import User
 
 manager = PluginManager()
 manager.setPluginPlaces(["plugins"])
@@ -310,7 +310,7 @@ if __name__ == '__main__':
 
     # EXECUTE PLUGINS, STREAM FROM OPENBCI
     openbci_update_thread = threading.Thread \
-        (target=execute_plugins, args=(board, [app.user.userECG]))
+        (target=execute_plugins, args=(board, [app.eog]))
     try:
         openbci_update_thread.start()
     except:
