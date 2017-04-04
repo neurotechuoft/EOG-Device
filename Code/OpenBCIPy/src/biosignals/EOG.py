@@ -73,30 +73,30 @@ class EOG(BioSignal):
             self.id_gestures()
             self.gesture_graph()
 
-            self.left_gaze = False
-            self.right_gaze = False
-            self.up_gaze = False
-            self.down_gaze = False
-            self.blink = False
+            # self.left_gaze = False
+            # self.right_gaze = False
+            # self.up_gaze = False
+            # self.down_gaze = False
+            # self.blink = False
 
 
 
-    def update_ecg(self):
-        '''
-        :return: None
-        '''
-        # OPEN CSV AND READ LINES
-        with open('./../packets.csv', 'rb') as ecg_file:
-            ecg_reader = csv.reader(ecg_file, delimiter=self.COMMA_DELIMITER)
-
-            # INTERPRET EACH LINE
-            for row in ecg_reader:
-                # Extract data needed
-                data_to_add = []
-                data_to_add.append(row[0])
-                data_to_add.append(float(row[3]) - float(row[2]))  # Einthoven
-                # Append to ECG list
-                self.__eog_list__.append(data_to_add)
+    # def update_eog(self):
+    #     '''
+    #     :return: None
+    #     '''
+    #     # OPEN CSV AND READ LINES
+    #     with open('./../packets.csv', 'rb') as ecg_file:
+    #         ecg_reader = csv.reader(ecg_file, delimiter=self.COMMA_DELIMITER)
+    #
+    #         # INTERPRET EACH LINE
+    #         for row in ecg_reader:
+    #             # Extract data needed
+    #             data_to_add = []
+    #             data_to_add.append(row[0])
+    #             data_to_add.append(float(row[3]) - float(row[2]))  # Einthoven
+    #             # Append to ECG list
+    #             self.__eog_list__.append(data_to_add)
 
 
     # HELPER FUNCTIONS----------------------------------------------------------
