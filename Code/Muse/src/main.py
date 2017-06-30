@@ -15,7 +15,7 @@ from keyboard.MindType import MindType
 
 from biosignals.EOG import EOG
 
-from Code.Muse.src.muse_server import PylibloServer
+from muse_server import PylibloServer
 
 logging.basicConfig(level=logging.ERROR)
 
