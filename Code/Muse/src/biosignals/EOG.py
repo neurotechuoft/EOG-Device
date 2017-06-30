@@ -50,7 +50,7 @@ class EOG(BioSignal):
         # TODO: encapsulate EOG List into something that reads more nicely
         # could use a dictionary
         self.__eog_list__[0].append(float(sample[0]))
-        self.__eog_list__[1].append((float(sample[2]) - float(sample[1])) /
+        self.__eog_list__[1].append((float(sample[2]) + float(sample[1])) /
                                     1000000.0)
         self.__eog_list__[2].append((float(sample[4]) - float(sample[3])) /
                                     1000000.0)

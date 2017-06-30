@@ -15,7 +15,7 @@ from server import *
 class Window(QtGui.QWidget):
 
     # Main Window ***********************************************************
-    def __init__(self):
+    def __init__(self, muse_server=None):
         # Initializing QtGui.QWidget
         super(Window, self).__init__()
         self.setWindowTitle("MuseApp")
@@ -86,7 +86,10 @@ class Window(QtGui.QWidget):
             return
         try:
             # Trys to connect to server
-            self.muse_server = PylibloServer(self.PORT)
+            if muse_server is None:
+                self.muse_server = PylibloServer(self.PORT)
+            else:
+                self.muse_server = muse_server
         except ServerError, err:
             # print >> sys.stderr, str(err)
             # sys.exit()
