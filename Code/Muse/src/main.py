@@ -65,7 +65,6 @@ def print_board_transmission_info(board):
 if __name__ == '__main__':
     controller = Controller()
     eog = EOG(256, controller)
-    muse_server = PylibloServer(eog)
 
     gui_thread = threading.Thread(target=make_gui, args=[controller])
     gui_thread.daemon = True
@@ -73,5 +72,7 @@ if __name__ == '__main__':
 
     process_thread = threading.Thread(target=process, args=[eog, controller])
     process_thread.start()
+    
+    muse_server = PylibloServer(eog)
 
     execute_board(muse_server, controller)
