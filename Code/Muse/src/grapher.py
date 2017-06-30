@@ -25,12 +25,12 @@ class Window(QtGui.QWidget):
             # Textboxes and Labels
         self.portLabel = QtGui.QLabel("Port:")
         self.portEdit = QtGui.QLineEdit()
-        self.portEdit.setText("1234")
+        self.portEdit.setText("5000")
         self.windowLabel = QtGui.QLabel("Window:")
         self.windowEdit = QtGui.QLineEdit()
         self.windowEdit.setText("1100")
             # Default textbox values
-        self.PORT = 1234
+        self.PORT = 5000
         self.LENGTH = 1100
             # Buttons
         self.btnStartServer = QtGui.QPushButton("Start Server", self)

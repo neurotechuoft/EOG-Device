@@ -39,7 +39,7 @@ class Data:
 # Server that holds the Data class and Pyliblo communication
 class PylibloServer(ServerThread):
     # Default port is 1234
-    def __init__(self, biosignal, PORT=1234):
+    def __init__(self, biosignal, PORT=5000):
         ServerThread.__init__(self, PORT)
         self.EEG = Data(biosignal)
     # Change the window size

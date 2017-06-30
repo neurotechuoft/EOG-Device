@@ -72,7 +72,7 @@ if __name__ == '__main__':
 
     process_thread = threading.Thread(target=process, args=[eog, controller])
     process_thread.start()
-    
+
     muse_server = PylibloServer(eog)
 
     execute_board(muse_server, controller)
