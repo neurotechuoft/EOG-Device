@@ -7,7 +7,7 @@ import time
 
 def find_peaks_helper(data, sampling_rate):
     peaks = []
-    num_stds = 1.99
+    num_stds = 2.00
 
     count = 0
     while count < len(data):
@@ -23,7 +23,7 @@ def find_peaks_helper(data, sampling_rate):
         stdev = window.std()
 
         for val in window:
-            if abs(val) > num_stds * stdev:
+            if abs(val - mean) > num_stds * stdev:
                 peaks.append(100)
             else:
                 peaks.append(0)
@@ -72,7 +72,7 @@ if __name__ == '__main__':
     # INTERPRET EACH LINE
     #with open('2016-8-23_17-52-48.csv', 'rb') as ecg_file:
     # with open('OpenBCI-RAW-aaron_ecg_1.csv', 'rb') as ecg_file:
-    with open('./../../../../Data-Repository/EOG-Data/Nov-15-2016/CSV'
+    with open('./../../../../../Data-Repository/EOG-Data/Nov-15-2016/CSV'
               '/OpenThenCenterRightCenterLeftCycles.csv', 'rb') as \
             ecg_file:
 
